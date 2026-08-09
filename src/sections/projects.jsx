@@ -52,7 +52,7 @@ const useIsMobile = (query = "(max-width: 639px)") => {
 // PROJECTS COMPONENT
 // ======================================================
 
-const Projects = () => {
+const Projects = ({ onPortfolioClick }) => {
   const isMobile = useIsMobile();
 
   const sceneRef = useRef(null);
@@ -89,9 +89,9 @@ const Projects = () => {
       },
 
       {
-        title: "My Resume",
+        title: "My Portfolio",
 
-        link: "",
+        link: null,
 
         bgColor: "#dc9317",
 
@@ -203,6 +203,28 @@ const Projects = () => {
     projects[activeIndex] || projects[0];
 
   // ====================================================
+  // VIEW PROJECT HANDLER
+  // ====================================================
+
+  const handleViewProject = (event) => {
+    // My Portfolio
+    if (activeProject.title === "My Portfolio") {
+      event.preventDefault();
+
+      if (onPortfolioClick) {
+        onPortfolioClick();
+      }
+
+      return;
+    }
+
+    // Projects without a link
+    if (!activeProject.link) {
+      event.preventDefault();
+    }
+  };
+
+  // ====================================================
   // RENDER
   // ====================================================
 
@@ -226,14 +248,6 @@ const Projects = () => {
 
       {/* ==================================================
           PROJECT SCENE
-
-          IMPORTANT:
-          Previously this was:
-          height: projects.length * 100vh
-
-          That made 3 projects = 300vh.
-
-          Now the whole Projects section stays compact.
       ================================================== */}
 
       <div
@@ -464,16 +478,24 @@ const Projects = () => {
             "
           >
             <a
-              href={activeProject?.link || "#"}
+              href={
+                activeProject.title === "My Portfolio"
+                  ? "#"
+                  : activeProject.link || "#"
+              }
               target={
-                activeProject?.link
-                  ? "_blank"
-                  : undefined
+                activeProject.title === "My Portfolio"
+                  ? undefined
+                  : activeProject.link
+                    ? "_blank"
+                    : undefined
               }
               rel={
-                activeProject?.link
-                  ? "noopener noreferrer"
-                  : undefined
+                activeProject.title === "My Portfolio"
+                  ? undefined
+                  : activeProject.link
+                    ? "noopener noreferrer"
+                    : undefined
               }
               className="
                 inline-block
@@ -489,12 +511,8 @@ const Projects = () => {
                 transition-all
                 duration-300
               "
-              aria-label={`View ${activeProject?.title}`}
-              onClick={(event) => {
-                if (!activeProject?.link) {
-                  event.preventDefault();
-                }
-              }}
+              aria-label={`View ${activeProject.title}`}
+              onClick={handleViewProject}
             >
               View Project
             </a>
