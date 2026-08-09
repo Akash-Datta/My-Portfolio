@@ -1,7 +1,9 @@
+
 import { motion } from "framer-motion";
-import { FaGithub} from "react-icons/fa6";
+import { FaGithub } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
+
 const socials = [
   {
     icon: FaInstagram,
@@ -51,20 +53,20 @@ const glowVariants = {
 const Footer = () => {
   return (
     <motion.footer
-      className="relative z-10 px-4 sm:px-8 lg:px-10 py-16 md:py-20 flex flex-col items-center text-center"
-      initial={{ opacity: 0, y: 30 }}
+      className="relative z-10 px-4 sm:px-8 lg:px-10 py-10 md:py-14 flex flex-col items-center text-center"
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.7 }}
     >
       {/* Name */}
       <h1
         className="font-semibold leading-none text-white text-center select-none"
         style={{
-          fontSize: "clamp(3rem, 8vw, 14rem)",
+          fontSize: "clamp(2.8rem, 6vw, 8rem)",
           letterSpacing: "0.02em",
           lineHeight: 0.9,
-          padding: "0 3vw",
+          padding: "0 2vw",
           whiteSpace: "nowrap",
           textShadow: "0 2px 18px rgba(0,0,0,0.45)",
         }}
@@ -73,7 +75,7 @@ const Footer = () => {
       </h1>
 
       {/* Social Icons */}
-      <div className="flex items-center justify-center gap-6 mt-8">
+      <div className="flex items-center justify-center gap-5 mt-6">
         {socials.map(({ icon: Icon, label, href }) => (
           <motion.a
             href={href}
@@ -87,19 +89,18 @@ const Footer = () => {
             whileTap="tap"
             className="text-gray-300 hover:text-white transition-colors duration-200 inline-flex items-center justify-center"
           >
-            <Icon size={24} />
+            <Icon size={21} />
           </motion.a>
         ))}
       </div>
 
       {/* Quote */}
-      <p className="mt-8 max-w-2xl px-4 text-gray-400 text-sm sm:text-base leading-relaxed">
-        "You don't have to be great to start, but you have to start to be
-        great."
+      <p className="mt-6 max-w-xl px-4 text-gray-400 text-xs sm:text-sm leading-relaxed">
+        "You don't have to be great to start, but you have to start to be great."
       </p>
 
       {/* Copyright */}
-      <p className="mt-4 text-gray-500 text-xs sm:text-sm">
+      <p className="mt-3 text-gray-500 text-[11px] sm:text-xs">
         © {new Date().getFullYear()} Akash Datta. Always eager to learn new
         things.
       </p>
