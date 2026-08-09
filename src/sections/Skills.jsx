@@ -291,6 +291,6 @@ const Skills = () => {
         </section>
     );
 };
-export default Skills;
+
 
 export default Skills;
