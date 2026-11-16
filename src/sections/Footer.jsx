@@ -18,7 +18,7 @@ const socials = [
   {
     icon: FaGithub,
     label: "GitHub",
-    href: "https://github.com/akash-dattaa",
+    href: "https://github.com/akash-datta",
   },
 ];
 

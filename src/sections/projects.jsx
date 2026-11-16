@@ -36,8 +36,6 @@ const useIsMobile = (query = "(max-width: 639px)") => {
       setIsMobile(event.matches);
     };
 
-    setIsMobile(mediaQuery.matches);
-
     mediaQuery.addEventListener("change", handleChange);
 
     return () => {

@@ -1,4 +1,4 @@
-import React from "react";
+// About section
 import { motion } from "framer-motion";
 import akash from "../assets/akash.jpeg";
 

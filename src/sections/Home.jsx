@@ -1,5 +1,5 @@
 
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
@@ -250,7 +250,7 @@ const Home = () => {
                             }}
                         >
                             <a
-                                href="#Projects"
+                                href="#projects"
                                 className="
                                     rounded-full
                                     bg-gradient-to-r
